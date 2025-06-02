@@ -11,8 +11,8 @@ public class Main extends JFrame {
     private CardLayout cardLayout;
     private JPanel mainPanel;
 
-    private GamePanel gamePanel;
-    private MainMenuPanel mainMenuPanel;
+    //private GamePanel gamePanel;
+    //private MainMenuPanel mainMenuPanel;
 
     private List<UserProfile> userProfiles; // ! ЗМІНЕНО: Тепер це список профілів !
     private UserProfile currentlyActiveProfile; // ! НОВЕ: Поточний активний профіль для гри !
