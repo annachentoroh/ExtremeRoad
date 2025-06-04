@@ -1,0 +1,62 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class UserProfileWindow extends JDialog {
+    private UserProfile userProfile;
+    private JLabel nameLabel;
+    private JLabel surnameLabel;
+    private JLabel emailLabel;
+    private JLabel highScoreLabel;
+    private JLabel totalCoinsLabel;
+
+    public UserProfileWindow(JFrame parent, UserProfile profile) {
+        super(parent, "Player Profile", true); // true робить вікно модальним
+        this.userProfile = profile;
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setSize(400, 300);
+        setLocationRelativeTo(parent); // Розмістити по центру батьківського вікна
+
+        setLayout(new BorderLayout());
+
+        JPanel infoPanel = new JPanel(new GridLayout(5, 1, 10, 10)); // 5 рядків, 1 колонка, відступи
+        infoPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Відступи від країв
+
+        nameLabel = new JLabel("Name: " + userProfile.getName());
+        surnameLabel = new JLabel("Surname: " + userProfile.getSurname());
+        emailLabel = new JLabel("Email: " + userProfile.getEmail());
+        highScoreLabel = new JLabel("High Score: " + userProfile.getHighScore());
+        totalCoinsLabel = new JLabel("Total Coins: " + userProfile.getTotalCoinsCollected());
+
+        nameLabel.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        surnameLabel.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        emailLabel.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        highScoreLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        totalCoinsLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
+
+        infoPanel.add(nameLabel);
+        infoPanel.add(surnameLabel);
+        infoPanel.add(emailLabel);
+        infoPanel.add(highScoreLabel);
+        infoPanel.add(totalCoinsLabel);
+
+        add(infoPanel, BorderLayout.CENTER);
+
+        JButton closeButton = new JButton("Close");
+        closeButton.setFont(new Font("Times New Roman", Font.BOLD, 16));
+        closeButton.addActionListener(e -> dispose()); // Закриває вікно при натисканні
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(closeButton);
+        add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+    // Метод для оновлення даних, якщо вони змінюються ззовні
+    public void updateProfileDisplay() {
+        nameLabel.setText("Name: " + userProfile.getName());
+        surnameLabel.setText("Surname: " + userProfile.getSurname());
+        emailLabel.setText("Email: " + userProfile.getEmail());
+        highScoreLabel.setText("High Score: " + userProfile.getHighScore());
+        totalCoinsLabel.setText("Total Coins: " + userProfile.getTotalCoinsCollected());
+    }
+}
