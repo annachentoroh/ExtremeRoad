@@ -4,6 +4,11 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import java.awt.Color; // Додано для резервного кольору
 
+/**
+ * Represents a collectible item in the game that the player can pick up.
+ * Collectables can be of different types like coins, shields, hearts, or double coin power-ups,
+ * each with its own visual representation and effect.
+ */
 public class Collectable {
     private int x, y, width, height;
     private int speed;
@@ -11,6 +16,7 @@ public class Collectable {
     private String type; // "coin", "shield", "heart", "double_coins" (новий тип)
     private Image image;
 
+    // Constructs a new Collectable object
     public Collectable(int x, int y, int width, int height, int speed, int lane, String type) {
         this.x = x;
         this.y = y;
@@ -68,6 +74,7 @@ public class Collectable {
             }
             g.fillRect(x, y, width, height);
 
+            // Add "X2" text for double_coins fallback
             if (type.equals("double_coins")) {
                 g.setColor(Color.WHITE); // Колір тексту
                 g.drawString("X2", x + width / 4, y + height / 2 + 5); // Додаємо "X2" текст
@@ -79,6 +86,7 @@ public class Collectable {
         return new Rectangle(x, y, width, height);
     }
 
+    // Checks if the collectable has moved off the bottom of the screen
     public boolean isOffScreen(int panelHeight) {
         return y > panelHeight;
     }

@@ -61,6 +61,7 @@ public class MainMenuPanel extends JPanel {
         g2d.fillRect(0, 0, getWidth(), getHeight());
     }
 
+    // Main Menu button
     private JButton createMenuButton(String text) {
         JButton button = new JButton(text);
         button.setFont(new Font("Consolas", Font.BOLD, 26));
@@ -84,6 +85,7 @@ public class MainMenuPanel extends JPanel {
         contentPanel.setLayout(new BorderLayout());
         contentPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
+        // Game instructions
         JLabel label = new JLabel("<html><body style='color: white; font-family: sans-serif;'>"
                 + "<h2 style='text-align: center;'>Game Instructions</h2>"
                 + "<p>Welcome to <strong>EXTREME ROAD</strong>! Navigate your player through endless lanes, avoid obstacles, and collect coins and power-ups.</p>"
