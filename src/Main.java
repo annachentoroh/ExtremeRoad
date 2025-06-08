@@ -136,7 +136,7 @@ public class Main extends JFrame {
     // Сеттер для встановлення поточного активного профілю (викликається з ProfileManagerWindow)
     public void setCurrentUserProfile(UserProfile profile) {
         this.currentlyActiveProfile = profile;
-        // Оновлюємо профіль і в GamePanel, якщо GamePanel вже існує
+        // Оновлюємо профіль і в GamePanel, якщо GamePanel вже існує, коментар для подальшого оброблення 
         if (gamePanel != null) {
             gamePanel.setCurrentUserProfile(currentlyActiveProfile);
         }
